@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-23 12:21:11
- * @LastEditTime: 2021-03-23 14:47:42
+ * @LastEditTime: 2021-03-25 14:54:44
  * @LastEditors: zhanghui.chen
  */
 import React from "react";
@@ -9,10 +9,14 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import "antd/dist/antd.less";
 import reportWebVitals from "./reportWebVitals";
+import { Provider } from "react-redux";
+import store from "store";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

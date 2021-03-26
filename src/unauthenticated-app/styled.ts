@@ -1,12 +1,11 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-23 16:05:35
- * @LastEditTime: 2021-03-23 19:39:36
+ * @LastEditTime: 2021-03-25 18:47:27
  * @LastEditors: zhanghui.chen
  */
 
 import styled from "@emotion/styled";
-import { Form } from "antd";
 
 // 登录container
 export const LoginContainer = styled.div`
@@ -69,4 +68,12 @@ export const LoginCard = styled.div`
 
 export const FormContainer = styled.div`
   margin: 0 6.6rem;
+`;
+
+export const BodyBackground = styled.img`
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
 `;

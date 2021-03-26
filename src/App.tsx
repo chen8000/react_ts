@@ -1,30 +1,36 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-23 12:21:11
- * @LastEditTime: 2021-03-23 17:54:33
+ * @LastEditTime: 2021-03-26 11:37:26
  * @LastEditors: zhanghui.chen
  */
 
-import background from "assets/images/body-background.png";
-import styled from "@emotion/styled";
-import { LoginComponent } from "views/login/index";
 import "./App.css";
+import { UnauthenticatedApp } from "unauthenticated-app";
+import { AuthenticatedApp } from "authenticated-app";
+import { useSelector } from "react-redux";
+import { US } from "unauthenticated-app/types";
 
 function App() {
+  // 1. 用户登录后设置userInfo
+  const userInfo = useSelector<US, US["userInfoState"]>(
+    (state) => state.userInfoState
+  );
+  // 2. 获取本地存储的用户登录状态
+  const userLogin = window.localStorage.getItem("user_login");
+
+  /*
+    以上两个条件满足其一，即视为用户已登录
+  */
   return (
     <div className="App">
-      <LoginComponent />
-      <BodyBackground src={background} alt="" />
+      {!!userLogin || userInfo?.name ? (
+        <AuthenticatedApp />
+      ) : (
+        <UnauthenticatedApp />
+      )}
     </div>
   );
 }
 
 export default App;
-
-const BodyBackground = styled.img`
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-`;

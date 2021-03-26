@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-23 14:12:53
- * @LastEditTime: 2021-03-23 18:38:51
+ * @LastEditTime: 2021-03-26 10:46:31
  * @LastEditors: zhanghui.chen
  */
 const CracoLessPlugin = require("craco-less");
@@ -22,8 +22,7 @@ module.exports = {
               // @error-color: #f5222d, // 错误色
               // "@font-size-base": "14px", // 主字号
               // @heading-color: rgba(0, 0, 0, 0.85), // 标题色
-              // @text-color: rgba(0, 0, 0, 0.65), // 主文本色
-              // @text-color-secondary: rgba(0, 0, 0, 0.45), // 次文本色
+              // "@text-color-secondary": "rgba(255, 255, 255, 0.45)", // 次文本色
               // @disabled-color: rgba(0, 0, 0, 0.25), // 失效色
               // @border-radius-base: 2px, // 组件/浮层圆角
               // @border-color-base: #d9d9d9, // 边框色
