@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-25 14:43:43
- * @LastEditTime: 2021-03-26 11:29:11
+ * @LastEditTime: 2021-03-29 12:11:14
  * @LastEditors: zhanghui.chen
  */
 import md5 from "js-md5";
@@ -16,13 +16,13 @@ import { message } from "antd";
 const userInfoState = (state: UserInfoStateType, action: UserAction) => {
   switch (action.type) {
     case USER_INFO:
-      return { ...state, ...action.user_info };
+      return action.user_info;
     default:
       return state || null;
   }
 };
 
-// action
+// action 返回一个type{}
 const setUserInfo = (user_info: UserInfoStateType): UserAction => ({
   type: USER_INFO,
   user_info,
@@ -61,4 +61,15 @@ const login = (values: UserLogin) => async (dispatch: AppDispatch) => {
   window.localStorage.setItem("token", result.token);
 };
 
-export { userInfoState, login };
+// 退出登录
+const logout = (dispatch: AppDispatch) => {
+  /*
+    1. 清除userInfoState
+    2. 清除token和user_login
+   */
+  dispatch(setUserInfo({}));
+  window.localStorage.removeItem("user_login");
+  window.localStorage.removeItem("token");
+};
+
+export { userInfoState, login, logout };

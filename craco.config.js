@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-23 14:12:53
- * @LastEditTime: 2021-03-26 10:46:31
+ * @LastEditTime: 2021-03-29 18:09:39
  * @LastEditors: zhanghui.chen
  */
 const CracoLessPlugin = require("craco-less");
@@ -15,6 +15,7 @@ module.exports = {
             modifyVars: {
               "@body-background": "#252525", // body背景色
               "@primary-color": "rgba(4, 181, 109, 1)",
+              "@text-color": "#fff",
               // @primary-color: #1890ff, // 全局主色
               // @link-color: #1890ff, // 链接色
               // @success-color: #52c41a, // 成功色
@@ -34,6 +35,11 @@ module.exports = {
               "@label-color": "rgba(176, 176, 176, 1)",
               "@input-border-color": "rgba(0,0,0,0)",
               "@input-hover-border-color": "rgba(0,0,0,.2)",
+              "@layout-body-background": "#252525",
+              "@layout-header-background": "#252525",
+              "@layout-sider-background": "rgba(28, 28, 28, 1)",
+              "@menu-dark-bg": "rgba(28, 28, 28, 1)",
+              "@menu-collapsed-width": "40px",
             },
             javascriptEnabled: true,
           },
