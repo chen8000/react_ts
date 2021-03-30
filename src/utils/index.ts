@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-26 11:47:22
- * @LastEditTime: 2021-03-26 12:12:19
+ * @LastEditTime: 2021-03-30 16:18:56
  * @LastEditors: zhanghui.chen
  */
 
@@ -16,16 +16,18 @@ import { US } from "unauthenticated-app/types";
  */
 
 export const useGetUserLoginType = () => {
-  // 1. 用户登录后设置userInfo
-  const userInfo = useSelector<US, US["userInfoState"]>(
-    (state) => state.userInfoState
-  );
-  // 2. 获取本地存储的用户登录状态
-  const userLogin = window.localStorage.getItem("user_login");
+  // 1. 用户登录后设置userInfo || 获取本地存储的用户登录状态
+  const userInfo =
+    useSelector<US, US["userInfoState"]>((state) => state.userInfoState) ||
+    window.localStorage.getItem("user_info");
 
   /*
     以上两个条件满足其一，即视为用户已登录
   */
 
-  return !!userInfo?.name || !!userLogin;
+  if (typeof userInfo === "string") {
+    return JSON.parse(userInfo);
+  }
+
+  return userInfo;
 };

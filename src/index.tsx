@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-23 12:21:11
- * @LastEditTime: 2021-03-29 18:46:04
+ * @LastEditTime: 2021-03-30 15:46:03
  * @LastEditors: zhanghui.chen
  */
 import React from "react";
@@ -9,6 +9,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import "antd/dist/antd.less";
 import "assets/style/transition.css";
+import "assets/style/cover.css";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "store";

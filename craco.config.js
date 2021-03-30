@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-23 14:12:53
- * @LastEditTime: 2021-03-29 18:09:39
+ * @LastEditTime: 2021-03-30 16:24:34
  * @LastEditors: zhanghui.chen
  */
 const CracoLessPlugin = require("craco-less");
@@ -30,8 +30,9 @@ module.exports = {
               // @box-shadow-base: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
               //   0 9px 28px 8px rgba(0, 0, 0, 0.05), // 浮层阴影
               "@input-placeholder-color": "rgba(120, 120, 120, 1)",
-              "@input-bg": "rgba(50, 50, 50, 1)",
+              "@component-background": "rgba(50, 50, 50, 1)",
               "@input-color": "#fff",
+              "@item-hover-bg": "rgba(0,0,0,0)",
               "@label-color": "rgba(176, 176, 176, 1)",
               "@input-border-color": "rgba(0,0,0,0)",
               "@input-hover-border-color": "rgba(0,0,0,.2)",
@@ -40,6 +41,8 @@ module.exports = {
               "@layout-sider-background": "rgba(28, 28, 28, 1)",
               "@menu-dark-bg": "rgba(28, 28, 28, 1)",
               "@menu-collapsed-width": "40px",
+              "@layout-header-padding": "0 30px",
+              "@avatar-bg": "rgba(90, 89, 89, 1)",
             },
             javascriptEnabled: true,
           },

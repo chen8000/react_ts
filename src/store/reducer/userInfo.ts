@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-25 14:43:43
- * @LastEditTime: 2021-03-29 12:11:14
+ * @LastEditTime: 2021-03-30 16:51:26
  * @LastEditors: zhanghui.chen
  */
 import md5 from "js-md5";
@@ -23,7 +23,7 @@ const userInfoState = (state: UserInfoStateType, action: UserAction) => {
 };
 
 // action 返回一个type{}
-const setUserInfo = (user_info: UserInfoStateType): UserAction => ({
+const setUserInfo = <S>(user_info: S): UserAction => ({
   type: USER_INFO,
   user_info,
 });
@@ -43,7 +43,10 @@ const login = (values: UserLogin) => async (dispatch: AppDispatch) => {
   // 验证通过
   const result = await http("/login", {
     method: "get",
-    data: { ...values, password: md5(values.password) },
+    data: {
+      ...values,
+      password: md5(values.password),
+    },
   });
 
   //---
@@ -56,7 +59,15 @@ const login = (values: UserLogin) => async (dispatch: AppDispatch) => {
   dispatch(setUserInfo(result));
 
   // 设置用户登录状态
-  window.localStorage.setItem("user_login", "1");
+  window.localStorage.setItem(
+    "user_info",
+    JSON.stringify({
+      code_list: result.code_list,
+      link_list: result.link_list,
+      name: result.name,
+      userid: result.userid,
+    })
+  );
   // 设置token
   window.localStorage.setItem("token", result.token);
 };
@@ -65,10 +76,10 @@ const login = (values: UserLogin) => async (dispatch: AppDispatch) => {
 const logout = (dispatch: AppDispatch) => {
   /*
     1. 清除userInfoState
-    2. 清除token和user_login
+    2. 清除token和user_info
    */
-  dispatch(setUserInfo({}));
-  window.localStorage.removeItem("user_login");
+  dispatch(setUserInfo(null));
+  window.localStorage.removeItem("user_info");
   window.localStorage.removeItem("token");
 };
 
