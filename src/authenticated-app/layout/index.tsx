@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-26 15:24:07
- * @LastEditTime: 2021-03-30 16:47:29
+ * @LastEditTime: 2021-03-30 16:59:23
  * @LastEditors: zhanghui.chen
  */
 import { LayoutPropsType } from "./types";
@@ -14,7 +14,7 @@ import {
   UploadOutlined,
   CaretDownOutlined,
 } from "@ant-design/icons";
-import { useState } from "react";
+
 import {
   LayoutContainer,
   LogoContainer,
@@ -27,6 +27,7 @@ import { CSSTransition } from "react-transition-group";
 import { useGetUserLoginType } from "utils";
 import { logout } from "store/reducer/userInfo";
 import { useDispatch } from "react-redux";
+import { useState } from "react";
 
 const { Header, Sider, Content } = Layout;
 

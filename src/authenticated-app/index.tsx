@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-26 10:59:17
- * @LastEditTime: 2021-03-29 12:16:05
+ * @LastEditTime: 2021-03-30 17:11:03
  * @LastEditors: zhanghui.chen
  */
 // 路由
@@ -11,7 +11,7 @@ import { Button } from "antd";
 import { logout } from "store/reducer/userInfo";
 import { useDispatch } from "react-redux";
 import { LayoutComponent } from "./layout";
-import { UrlList } from "./urllist";
+import { MaliciousUrl } from "./maliciousUrl";
 
 export const AuthenticatedApp = () => {
   const dispatch = useDispatch();
@@ -27,8 +27,8 @@ export const AuthenticatedApp = () => {
         </Button>
         <Router>
           <Routes>
-            <Route path={"/urllist"} element={<UrlList />} />
-            <Navigate to={"/urllist"} />
+            <Route path={"/maliciousUrl"} element={<MaliciousUrl />} />
+            <Navigate to={"/maliciousUrl"} />
           </Routes>
         </Router>
       </>

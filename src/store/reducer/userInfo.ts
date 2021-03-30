@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-25 14:43:43
- * @LastEditTime: 2021-03-30 16:51:26
+ * @LastEditTime: 2021-03-30 18:35:22
  * @LastEditors: zhanghui.chen
  */
 import md5 from "js-md5";
@@ -9,7 +9,7 @@ import { AppDispatch } from "store";
 import { http } from "utils/http";
 import { UserLogin } from "unauthenticated-app/types";
 import { USER_INFO } from "../actionTypes";
-import { UserAction, UserInfoStateType } from "../types";
+import { MenuLinkListType, UserAction, UserInfoStateType } from "../types";
 import { message } from "antd";
 
 // reducer
@@ -70,6 +70,10 @@ const login = (values: UserLogin) => async (dispatch: AppDispatch) => {
   );
   // 设置token
   window.localStorage.setItem("token", result.token);
+  window.localStorage.setItem("username", values.username);
+
+  // 登录成功后获取所有菜单
+  getMenu(result.link_list.split(","));
 };
 
 // 退出登录
@@ -79,8 +83,28 @@ const logout = (dispatch: AppDispatch) => {
     2. 清除token和user_info
    */
   dispatch(setUserInfo(null));
+  window.localStorage.removeItem("username");
   window.localStorage.removeItem("user_info");
   window.localStorage.removeItem("token");
+  window.localStorage.removeItem("user_menu");
+};
+
+// 获取菜单
+const getMenu = async (link_list: string[]) => {
+  let result = await http("/get_menu", {
+    token: window.localStorage.getItem("token") || "",
+    username: window.localStorage.getItem("username") || "",
+  });
+  if (result.code !== 200) {
+    console.warn("get_menu接口状态异常，请检查代码");
+    return;
+  }
+  let userLinkList = result.data.link_list.filter((res: MenuLinkListType) =>
+    link_list.includes(String(res.menu_id))
+  );
+
+  // 存储用户权限列表
+  window.localStorage.setItem("user_menu", JSON.stringify(userLinkList));
 };
 
 export { userInfoState, login, logout };
