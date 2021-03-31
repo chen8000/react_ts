@@ -1,117 +1,47 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-26 15:24:07
- * @LastEditTime: 2021-03-30 16:59:23
+ * @LastEditTime: 2021-03-31 19:32:31
  * @LastEditors: zhanghui.chen
  */
-import { LayoutPropsType } from "./types";
-import { Layout, Menu, Dropdown, Avatar } from "antd";
-import {
-  LeftOutlined,
-  RightOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
-  CaretDownOutlined,
-} from "@ant-design/icons";
 
-import {
-  LayoutContainer,
-  LogoContainer,
-  OutlinedContainer,
-  ModuleName,
-  HeaderUserName,
-} from "./styled";
-import Logo from "assets/images/logo.png";
-import { CSSTransition } from "react-transition-group";
-import { useGetUserLoginType } from "utils";
-import { logout } from "store/reducer/userInfo";
-import { useDispatch } from "react-redux";
-import { useState } from "react";
+import { Navigate, Routes, Route } from "react-router";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Layout } from "antd";
 
-const { Header, Sider, Content } = Layout;
+import { LayoutContainer } from "./styled";
+import { SiderContainer } from "./sider";
+import { HeaderContainer } from "./header";
 
-export const LayoutComponent = (props: LayoutPropsType) => {
-  const [collapsed, setCollapsed] = useState(false);
-  const dispatch = useDispatch();
+import { MaliciousUrl } from "../maliciousUrl/index";
+import { AuditStatistics } from "../auditStatistics/index";
+import { ManpowerAudit } from "../manpowerAudit/index";
+import { Organization } from "../organization/index";
+import { WebsiteAudit } from "../websiteAudit/index";
 
-  const userInfo = useGetUserLoginType();
+const { Content } = Layout;
+
+export const AuthenticatedApp = () => {
   return (
     <LayoutContainer>
       <Layout>
-        <Sider trigger={null} collapsible collapsed={collapsed} width={270}>
-          <LogoContainer>
-            <img width={"24px"} src={Logo} alt="" />
-            <p className={"title"}>
-              <CSSTransition
-                in={!collapsed}
-                timeout={300}
-                classNames={"fade"}
-                unmountOnExit
-              >
-                <span>反欺诈人工审核系统</span>
-              </CSSTransition>
-            </p>
-          </LogoContainer>
-          <OutlinedContainer
-            onClick={() => {
-              setCollapsed(!collapsed);
-            }}
-          >
-            {collapsed ? <RightOutlined /> : <LeftOutlined />}
-          </OutlinedContainer>
-
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
-            <Menu.Item key="1" icon={<UserOutlined />}>
-              nav 1
-            </Menu.Item>
-            <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-              nav 2
-            </Menu.Item>
-            <Menu.Item key="3" icon={<UploadOutlined />}>
-              nav 3
-            </Menu.Item>
-          </Menu>
-        </Sider>
+        <SiderContainer></SiderContainer>
         <Layout>
-          <Header className={"header"}>
-            <ModuleName>恶意网址</ModuleName>
-            <Dropdown
-              overlay={
-                <Menu>
-                  <Menu.Item
-                    key="0"
-                    onClick={() => {
-                      dispatch(logout);
-                    }}
-                  >
-                    退出登录
-                  </Menu.Item>
-                </Menu>
-              }
-              trigger={["click"]}
-            >
-              <p onClick={(e) => e.preventDefault()}>
-                {/* 头像👮 */}
-                <Avatar
-                  src={
-                    "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-                  }
-                  style={{ marginRight: ".7rem" }}
+          <HeaderContainer></HeaderContainer>
+          <Content>
+            <Router>
+              <Routes>
+                <Route path={"/maliciousUrl"} element={<MaliciousUrl />} />
+                <Route
+                  path={"/auditStatistics"}
+                  element={<AuditStatistics />}
                 />
-                <HeaderUserName>{userInfo.name} </HeaderUserName>
-                <CaretDownOutlined />
-              </p>
-            </Dropdown>
-          </Header>
-          <Content
-            style={{
-              margin: "24px 16px",
-              padding: 24,
-              minHeight: 280,
-            }}
-          >
-            {props.children}
+                <Route path={"/manpowerAudit"} element={<ManpowerAudit />} />
+                <Route path={"/organization"} element={<Organization />} />
+                <Route path={"/websiteAudit"} element={<WebsiteAudit />} />
+                <Navigate to={"/maliciousUrl"} />
+              </Routes>
+            </Router>
           </Content>
         </Layout>
       </Layout>

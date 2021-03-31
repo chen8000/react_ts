@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-29 12:28:08
- * @LastEditTime: 2021-03-30 14:22:59
+ * @LastEditTime: 2021-03-31 18:37:38
  * @LastEditors: zhanghui.chen
  */
 
@@ -9,6 +9,7 @@ import styled from "@emotion/styled";
 import siderBackground from "assets/images/sider-background.png";
 import itemFocus from "assets/images/item-focus.png";
 import { primaryColor, bodyBackground } from "theme";
+import { CaretDownOutlined } from "@ant-design/icons";
 
 // LayoutContainer
 export const LayoutContainer = styled.div`
@@ -39,8 +40,8 @@ export const LayoutContainer = styled.div`
       min-width: 10rem !important;
     }
     .ant-layout-content {
-      margin: 20px !important;
-      padding: 0 !important;
+      margin: 20px;
+      padding: 0;
     }
     .header {
       display: flex;
@@ -102,4 +103,9 @@ export const HeaderUserName = styled.span`
   height: 100%;
   display: flex;
   align-items: center;
+`;
+
+export const CaretDownOutlinedIcon = styled(CaretDownOutlined)`
+  color: rgba(165, 165, 165, 1);
+  margin-left: 0.5rem;
 `;

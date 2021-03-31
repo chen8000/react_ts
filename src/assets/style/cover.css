@@ -4,3 +4,8 @@
 .ant-dropdown-menu-item-active {
   color: #fff;
 }
+
+.ant-menu-item {
+  display: flex;
+  align-items: center;
+}

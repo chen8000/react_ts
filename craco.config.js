@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-23 14:12:53
- * @LastEditTime: 2021-03-30 16:24:34
+ * @LastEditTime: 2021-03-31 17:27:32
  * @LastEditors: zhanghui.chen
  */
 const CracoLessPlugin = require("craco-less");
@@ -16,6 +16,7 @@ module.exports = {
               "@body-background": "#252525", // body背景色
               "@primary-color": "rgba(4, 181, 109, 1)",
               "@text-color": "#fff",
+              "@menu-icon-size": "20px",
               // @primary-color: #1890ff, // 全局主色
               // @link-color: #1890ff, // 链接色
               // @success-color: #52c41a, // 成功色

@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-25 14:43:43
- * @LastEditTime: 2021-03-30 18:35:22
+ * @LastEditTime: 2021-03-31 10:41:52
  * @LastEditors: zhanghui.chen
  */
 import md5 from "js-md5";
@@ -91,10 +91,7 @@ const logout = (dispatch: AppDispatch) => {
 
 // 获取菜单
 const getMenu = async (link_list: string[]) => {
-  let result = await http("/get_menu", {
-    token: window.localStorage.getItem("token") || "",
-    username: window.localStorage.getItem("username") || "",
-  });
+  let result = await http("/get_menu");
   if (result.code !== 200) {
     console.warn("get_menu接口状态异常，请检查代码");
     return;

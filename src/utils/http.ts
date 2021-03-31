@@ -1,31 +1,30 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-08 14:59:35
- * @LastEditTime: 2021-03-30 18:07:32
+ * @LastEditTime: 2021-03-31 14:31:48
  * @LastEditors: zhanghui.chen
  */
 
 import qs from "qs";
+import _ from "lodash";
 const apiUrl = process.env.REACT_APP_API_URL;
-
 interface Config extends RequestInit {
   data?: object;
   token?: string;
-  username?: string;
 }
 
 // endpoint
 export const http = async (
   api: string,
-  { data, token, username, ...RequestInitConfig }: Config = {}
+  { data, ...RequestInitConfig }: Config = {}
 ) => {
   const config = {
     method: "GET",
-    headers: {
+    headers: _.pickBy({
       username: window.localStorage.getItem("username") || "",
-      token: window.localStorage.getItem("token") || token || "",
+      token: window.localStorage.getItem("token") || "",
       "Content-Type": data ? "application/json" : "",
-    },
+    }),
     ...RequestInitConfig,
   };
 

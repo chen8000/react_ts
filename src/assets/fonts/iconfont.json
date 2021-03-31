@@ -1,0 +1,233 @@
+{
+  "id": "2122606",
+  "name": "反欺诈人工审核平台",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "4767093",
+      "name": "check",
+      "font_class": "check",
+      "unicode": "e7fc",
+      "unicode_decimal": 59388
+    },
+    {
+      "icon_id": "20410987",
+      "name": "展开备份",
+      "font_class": "zhankaibeifen",
+      "unicode": "e68b",
+      "unicode_decimal": 59019
+    },
+    {
+      "icon_id": "4765729",
+      "name": "down-circle",
+      "font_class": "down-circle",
+      "unicode": "e780",
+      "unicode_decimal": 59264
+    },
+    {
+      "icon_id": "4767011",
+      "name": "right",
+      "font_class": "right",
+      "unicode": "e7eb",
+      "unicode_decimal": 59371
+    },
+    {
+      "icon_id": "4767012",
+      "name": "left",
+      "font_class": "left",
+      "unicode": "e7ec",
+      "unicode_decimal": 59372
+    },
+    {
+      "icon_id": "4767013",
+      "name": "up",
+      "font_class": "up",
+      "unicode": "e7ed",
+      "unicode_decimal": 59373
+    },
+    {
+      "icon_id": "20410105",
+      "name": "已处置",
+      "font_class": "yichuzhi",
+      "unicode": "e680",
+      "unicode_decimal": 59008
+    },
+    {
+      "icon_id": "20410113",
+      "name": "待处置",
+      "font_class": "daichuzhi",
+      "unicode": "e681",
+      "unicode_decimal": 59009
+    },
+    {
+      "icon_id": "20410114",
+      "name": "提示",
+      "font_class": "tishi",
+      "unicode": "e682",
+      "unicode_decimal": 59010
+    },
+    {
+      "icon_id": "20410115",
+      "name": "网址",
+      "font_class": "wangzhi1",
+      "unicode": "e683",
+      "unicode_decimal": 59011
+    },
+    {
+      "icon_id": "20410131",
+      "name": "关闭",
+      "font_class": "guanbi",
+      "unicode": "e684",
+      "unicode_decimal": 59012
+    },
+    {
+      "icon_id": "20410132",
+      "name": "截图",
+      "font_class": "jietu",
+      "unicode": "e685",
+      "unicode_decimal": 59013
+    },
+    {
+      "icon_id": "20410133",
+      "name": "下",
+      "font_class": "xia",
+      "unicode": "e686",
+      "unicode_decimal": 59014
+    },
+    {
+      "icon_id": "20410134",
+      "name": "添加",
+      "font_class": "tianjia",
+      "unicode": "e687",
+      "unicode_decimal": 59015
+    },
+    {
+      "icon_id": "20410135",
+      "name": "确定",
+      "font_class": "queding",
+      "unicode": "e688",
+      "unicode_decimal": 59016
+    },
+    {
+      "icon_id": "20410136",
+      "name": "上传",
+      "font_class": "shangchuan",
+      "unicode": "e689",
+      "unicode_decimal": 59017
+    },
+    {
+      "icon_id": "20410137",
+      "name": "编辑",
+      "font_class": "bianji",
+      "unicode": "e68a",
+      "unicode_decimal": 59018
+    },
+    {
+      "icon_id": "20410139",
+      "name": "导出",
+      "font_class": "daochu",
+      "unicode": "e68c",
+      "unicode_decimal": 59020
+    },
+    {
+      "icon_id": "20410140",
+      "name": "复制",
+      "font_class": "fuzhi",
+      "unicode": "e68d",
+      "unicode_decimal": 59021
+    },
+    {
+      "icon_id": "20410141",
+      "name": "查看",
+      "font_class": "chakan",
+      "unicode": "e68e",
+      "unicode_decimal": 59022
+    },
+    {
+      "icon_id": "20410142",
+      "name": "删除",
+      "font_class": "shanchu",
+      "unicode": "e68f",
+      "unicode_decimal": 59023
+    },
+    {
+      "icon_id": "20410143",
+      "name": "取消",
+      "font_class": "quxiao",
+      "unicode": "e690",
+      "unicode_decimal": 59024
+    },
+    {
+      "icon_id": "20410162",
+      "name": "人力审计",
+      "font_class": "renlishenji",
+      "unicode": "e691",
+      "unicode_decimal": 59025
+    },
+    {
+      "icon_id": "20410163",
+      "name": "恶意网址",
+      "font_class": "eyiwangzhi",
+      "unicode": "e692",
+      "unicode_decimal": 59026
+    },
+    {
+      "icon_id": "20410164",
+      "name": "审核统计",
+      "font_class": "shenhetongji",
+      "unicode": "e693",
+      "unicode_decimal": 59027
+    },
+    {
+      "icon_id": "20410165",
+      "name": "系统设置",
+      "font_class": "xitongshezhi",
+      "unicode": "e694",
+      "unicode_decimal": 59028
+    },
+    {
+      "icon_id": "20410166",
+      "name": "网址审核",
+      "font_class": "wangzhishenhe",
+      "unicode": "e695",
+      "unicode_decimal": 59029
+    },
+    {
+      "icon_id": "20410167",
+      "name": "首页",
+      "font_class": "shouye",
+      "unicode": "e696",
+      "unicode_decimal": 59030
+    },
+    {
+      "icon_id": "20410172",
+      "name": "下",
+      "font_class": "xia1",
+      "unicode": "e697",
+      "unicode_decimal": 59031
+    },
+    {
+      "icon_id": "20410173",
+      "name": "用户",
+      "font_class": "yonghu",
+      "unicode": "e698",
+      "unicode_decimal": 59032
+    },
+    {
+      "icon_id": "20410178",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e699",
+      "unicode_decimal": 59033
+    },
+    {
+      "icon_id": "20410179",
+      "name": "重置",
+      "font_class": "zhongzhi",
+      "unicode": "e69a",
+      "unicode_decimal": 59034
+    }
+  ]
+}
