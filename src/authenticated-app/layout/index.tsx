@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-26 15:24:07
- * @LastEditTime: 2021-03-31 19:32:31
+ * @LastEditTime: 2021-03-31 19:41:44
  * @LastEditors: zhanghui.chen
  */
 
@@ -19,8 +19,6 @@ import { ManpowerAudit } from "../manpowerAudit/index";
 import { Organization } from "../organization/index";
 import { WebsiteAudit } from "../websiteAudit/index";
 
-const { Content } = Layout;
-
 export const AuthenticatedApp = () => {
   return (
     <LayoutContainer>
@@ -28,7 +26,7 @@ export const AuthenticatedApp = () => {
         <SiderContainer></SiderContainer>
         <Layout>
           <HeaderContainer></HeaderContainer>
-          <Content>
+          <Layout.Content>
             <Router>
               <Routes>
                 <Route path={"/maliciousUrl"} element={<MaliciousUrl />} />
@@ -42,7 +40,7 @@ export const AuthenticatedApp = () => {
                 <Navigate to={"/maliciousUrl"} />
               </Routes>
             </Router>
-          </Content>
+          </Layout.Content>
         </Layout>
       </Layout>
     </LayoutContainer>

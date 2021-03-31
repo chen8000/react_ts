@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-31 19:19:33
- * @LastEditTime: 2021-03-31 19:39:57
+ * @LastEditTime: 2021-03-31 19:41:21
  * @LastEditors: zhanghui.chen
  */
 import { useState } from "react";
@@ -14,12 +14,12 @@ import { MenuLinkListType } from "store/types";
 import { CollapsedType } from "./types";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import Logo from "assets/images/logo.png";
-const { Sider } = Layout;
+
 export const SiderContainer = () => {
   const [collapsed, setCollapsed] = useState(false);
   const { userMenu } = useGetUserInfo();
   return (
-    <Sider trigger={null} collapsible collapsed={collapsed} width={270}>
+    <Layout.Sider trigger={null} collapsible collapsed={collapsed} width={270}>
       <LogoGroup collapsed={collapsed} />
       <OutlinedGroup collapsed={collapsed} setCollapsed={setCollapsed} />
 
@@ -35,7 +35,7 @@ export const SiderContainer = () => {
           </Menu.Item>
         ))}
       </Menu>
-    </Sider>
+    </Layout.Sider>
   );
 };
 
@@ -57,7 +57,7 @@ const LogoGroup = ({ collapsed }: Omit<CollapsedType, "setCollapsed">) => {
     </LogoContainer>
   );
 };
-
+// 左侧收缩按钮
 const OutlinedGroup = ({ collapsed, setCollapsed }: CollapsedType) => {
   return (
     <OutlinedContainer
