@@ -1,23 +1,16 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-25 14:47:47
- * @LastEditTime: 2021-03-30 18:26:41
+ * @LastEditTime: 2021-04-01 17:33:48
  * @LastEditors: zhanghui.chen
  */
 
-import { USER_INFO } from "./actionTypes";
+import { USER_LOGIN_STATUS } from "./actionTypes";
 
 // user State 类型
 export interface UserInfoStateType {
-  username?: string;
-  code?: number;
-  code_list?: string;
-  link_list?: string;
-  login_check?: number;
-  message?: boolean;
-  name?: string;
-  token?: string;
-  userid?: number;
+  loginStatus?: boolean; // 用户是否登录，false未登录
+  link_list?: string[];
 }
 
 // user menu 接口类型
@@ -35,6 +28,6 @@ export interface MenuLinkListType {
 
 // user action 类型
 export interface UserAction {
-  type: typeof USER_INFO;
-  user_info?: UserInfoStateType;
+  type: typeof USER_LOGIN_STATUS;
+  payload: UserInfoStateType;
 }

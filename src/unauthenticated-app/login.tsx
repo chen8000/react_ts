@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-23 15:52:48
- * @LastEditTime: 2021-03-26 11:02:30
+ * @LastEditTime: 2021-04-01 18:41:00
  * @LastEditors: zhanghui.chen
  */
 
@@ -15,7 +15,7 @@ import {
 } from "./styled";
 import Logo from "assets/images/logo.png";
 import { useDispatch } from "react-redux";
-import { login } from "store/reducer/userInfo";
+import { login } from "store/user/actions";
 import { UserLogin } from "./types";
 import background from "assets/images/body-background.png";
 
@@ -23,7 +23,9 @@ export const LoginComponent = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values: UserLogin) => {
-    dispatch(login(values));
+    // dispatch(login(values));
+    dispatch(login({ username: "admin", password: "123.com" }));
+    // setUserLoginStatus(true);
   };
   return (
     <>

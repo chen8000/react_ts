@@ -1,12 +1,12 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-25 11:17:34
- * @LastEditTime: 2021-03-26 10:06:03
+ * @LastEditTime: 2021-04-01 16:28:48
  * @LastEditors: zhanghui.chen
  */
 
 import { combineReducers, createStore, applyMiddleware } from "redux";
-import { userInfoState } from "./reducer/userInfo";
+import { userInfoState } from "./user/reducer";
 import thunk from "redux-thunk";
 
 // 整合 reducer

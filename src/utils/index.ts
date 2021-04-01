@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-26 11:47:22
- * @LastEditTime: 2021-03-31 19:14:38
+ * @LastEditTime: 2021-04-01 19:14:15
  * @LastEditors: zhanghui.chen
  */
 
@@ -21,7 +21,7 @@ export const useGetUserInfo = () => {
     useSelector<US, US["userInfoState"]>((state) => state.userInfoState) ||
     window.localStorage.getItem("user_info");
 
-  const userMenu = JSON.parse(window.localStorage.getItem("user_menu") || "");
+  const userMenu = JSON.parse(String(window.localStorage.getItem("user_menu")));
 
   /*
     以上两个条件满足其一，即视为用户已登录
@@ -32,4 +32,11 @@ export const useGetUserInfo = () => {
   }
 
   return { userInfo, userMenu };
+};
+
+export const getUserLoginStatus = () => {
+  return !!(
+    window.localStorage.getItem("token") &&
+    window.localStorage.getItem("user_id")
+  );
 };

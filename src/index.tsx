@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-23 12:21:11
- * @LastEditTime: 2021-03-31 17:02:44
+ * @LastEditTime: 2021-04-01 12:20:05
  * @LastEditors: zhanghui.chen
  */
 import React from "react";
@@ -14,11 +14,14 @@ import "assets/fonts/iconfont.css";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "store";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

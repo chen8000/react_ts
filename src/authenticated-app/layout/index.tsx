@@ -1,12 +1,12 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-26 15:24:07
- * @LastEditTime: 2021-03-31 19:41:44
+ * @LastEditTime: 2021-04-01 19:32:56
  * @LastEditors: zhanghui.chen
  */
 
 import { Navigate, Routes, Route } from "react-router";
-import { BrowserRouter as Router } from "react-router-dom";
+// import { BrowserRouter as Router } from "react-router-dom";
 import { Layout } from "antd";
 
 import { LayoutContainer } from "./styled";
@@ -23,23 +23,19 @@ export const AuthenticatedApp = () => {
   return (
     <LayoutContainer>
       <Layout>
-        <SiderContainer></SiderContainer>
+        {/* 处理权限列表 */}
+        {/* <SiderContainer></SiderContainer> */}
         <Layout>
           <HeaderContainer></HeaderContainer>
           <Layout.Content>
-            <Router>
-              <Routes>
-                <Route path={"/maliciousUrl"} element={<MaliciousUrl />} />
-                <Route
-                  path={"/auditStatistics"}
-                  element={<AuditStatistics />}
-                />
-                <Route path={"/manpowerAudit"} element={<ManpowerAudit />} />
-                <Route path={"/organization"} element={<Organization />} />
-                <Route path={"/websiteAudit"} element={<WebsiteAudit />} />
-                <Navigate to={"/maliciousUrl"} />
-              </Routes>
-            </Router>
+            <Routes>
+              <Route path={"/maliciousUrl"} element={<MaliciousUrl />} />
+              <Route path={"/auditStatistics"} element={<AuditStatistics />} />
+              <Route path={"/manpowerAudit"} element={<ManpowerAudit />} />
+              <Route path={"/organization"} element={<Organization />} />
+              <Route path={"/websiteAudit"} element={<WebsiteAudit />} />
+              <Navigate to={"/maliciousUrl"} />
+            </Routes>
           </Layout.Content>
         </Layout>
       </Layout>

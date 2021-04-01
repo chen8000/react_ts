@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-31 19:19:33
- * @LastEditTime: 2021-03-31 19:41:21
+ * @LastEditTime: 2021-04-01 16:29:26
  * @LastEditors: zhanghui.chen
  */
 import { useState } from "react";
@@ -10,9 +10,9 @@ import { Menu, Layout } from "antd";
 import { LogoContainer, OutlinedContainer } from "./styled";
 import { CSSTransition } from "react-transition-group";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-import { MenuLinkListType } from "store/types";
+import { MenuLinkListType } from "store/user/types";
 import { CollapsedType } from "./types";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logo from "assets/images/logo.png";
 
 export const SiderContainer = () => {
@@ -29,9 +29,7 @@ export const SiderContainer = () => {
             icon={<i className={`iconfont ${item.icon}`}></i>}
             key={String(item.menu_id)}
           >
-            <Router>
-              <Link to={`${item.link}`}>{item.name}</Link>
-            </Router>
+            <Link to={`${item.link}`}>{item.name}</Link>
           </Menu.Item>
         ))}
       </Menu>
