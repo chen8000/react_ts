@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-26 15:24:07
- * @LastEditTime: 2021-04-01 19:32:56
+ * @LastEditTime: 2021-04-06 14:03:12
  * @LastEditors: zhanghui.chen
  */
 
@@ -24,7 +24,7 @@ export const AuthenticatedApp = () => {
     <LayoutContainer>
       <Layout>
         {/* 处理权限列表 */}
-        {/* <SiderContainer></SiderContainer> */}
+        <SiderContainer></SiderContainer>
         <Layout>
           <HeaderContainer></HeaderContainer>
           <Layout.Content>

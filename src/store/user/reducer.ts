@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-04-01 16:13:11
- * @LastEditTime: 2021-04-01 17:33:06
+ * @LastEditTime: 2021-04-06 14:05:42
  * @LastEditors: zhanghui.chen
  */
 
@@ -11,14 +11,18 @@ import { UserAction, UserInfoStateType } from "./types";
 // initial state
 const initialState: UserInfoStateType = {
   loginStatus: false, // 登录状态
-  link_list: [],
+  linkList: [], // 当前用户对应的菜单
 };
 
 export const userInfoState = (state = initialState, action: UserAction) => {
   switch (action.type) {
     case USER_LOGIN_STATUS:
       //修改用户登录状态
-      return { ...state, loginStatus: action.payload.loginStatus };
+      return {
+        ...state,
+        loginStatus: action.payload.loginStatus,
+        linkList: action.payload.linkList,
+      };
     default:
       return state || null;
   }

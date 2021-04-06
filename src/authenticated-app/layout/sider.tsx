@@ -1,11 +1,10 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-31 19:19:33
- * @LastEditTime: 2021-04-01 16:29:26
+ * @LastEditTime: 2021-04-06 14:29:35
  * @LastEditors: zhanghui.chen
  */
 import { useState } from "react";
-import { useGetUserInfo } from "utils";
 import { Menu, Layout } from "antd";
 import { LogoContainer, OutlinedContainer } from "./styled";
 import { CSSTransition } from "react-transition-group";
@@ -13,18 +12,24 @@ import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { MenuLinkListType } from "store/user/types";
 import { CollapsedType } from "./types";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Logo from "assets/images/logo.png";
+import { US } from "unauthenticated-app/types";
 
 export const SiderContainer = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const { userMenu } = useGetUserInfo();
+
+  let linkList = useSelector<US, US["userInfoState"]["linkList"]>(
+    (state) => state.userInfoState.linkList
+  );
+
   return (
     <Layout.Sider trigger={null} collapsible collapsed={collapsed} width={270}>
       <LogoGroup collapsed={collapsed} />
       <OutlinedGroup collapsed={collapsed} setCollapsed={setCollapsed} />
 
       <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
-        {userMenu.map((item: MenuLinkListType) => (
+        {linkList?.map((item: MenuLinkListType) => (
           <Menu.Item
             icon={<i className={`iconfont ${item.icon}`}></i>}
             key={String(item.menu_id)}

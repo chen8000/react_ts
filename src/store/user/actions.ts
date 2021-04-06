@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-04-01 16:13:21
- * @LastEditTime: 2021-04-01 19:21:44
+ * @LastEditTime: 2021-04-06 14:06:20
  * @LastEditors: zhanghui.chen
  */
 
@@ -11,7 +11,7 @@ import { AppDispatch } from "store";
 import { UserLogin } from "unauthenticated-app/types";
 import { http } from "utils/http";
 import { USER_LOGIN_STATUS } from "./actionTypes";
-import { UserAction } from "./types";
+import { UserAction, JurisdictionType, MenuLinkListType } from "./types";
 
 // action 返回一个type{}
 export const setUserInfo = <S>(payload: S): UserAction => ({
@@ -90,5 +90,38 @@ export const getJurisdiction = async (dispatch: AppDispatch) => {
     return;
   }
 
-  dispatch(setUserInfo({ ...result, loginStatus: true }));
+  // 获取权限菜单
+  const thisUserLinkList = await getMenus(result);
+  if (thisUserLinkList.code !== 200) {
+    message.warning("获取权限失败！");
+    return;
+  }
+  dispatch(
+    setUserInfo({
+      ...result,
+      loginStatus: true,
+      linkList: thisUserLinkList.link_list,
+    })
+  );
+};
+
+// 获取所有模块列表
+export const getMenus = async (jurisdictionResult: JurisdictionType) => {
+  /*
+    获取菜单列表，最终过滤出当前用户的权限列表并返回
+  */
+  const menus = await http("/get_menu");
+
+  if (menus.code !== 200) {
+    return { code: menus.code, link_list: [] };
+  }
+
+  // 匹配用户权限列表
+  const user_link_list = jurisdictionResult.link_list?.split(",");
+
+  const link_list = menus.data.link_list.filter((res: MenuLinkListType) =>
+    user_link_list?.includes(String(res.menu_id))
+  );
+
+  return { code: menus.code, link_list };
 };
