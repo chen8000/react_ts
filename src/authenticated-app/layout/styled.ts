@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-29 12:28:08
- * @LastEditTime: 2021-03-31 18:37:38
+ * @LastEditTime: 2021-04-09 12:24:04
  * @LastEditors: zhanghui.chen
  */
 
@@ -54,6 +54,23 @@ export const LayoutContainer = styled.div`
       height: 30px;
       margin-bottom: 0;
       cursor: pointer;
+    }
+
+    /* 二级菜单 */
+    .ant-menu-submenu .ant-menu-item-selected {
+      background: none !important;
+      color: ${primaryColor};
+    }
+    .ant-menu-submenu .ant-menu-item-selected .ant-menu-item-icon + span {
+      color: ${primaryColor};
+    }
+
+    .ant-menu-submenu-open {
+      color: ${primaryColor};
+    }
+
+    .ant-menu-dark .ant-menu-sub .ant-menu-item-selected > span > a {
+      color: ${primaryColor};
     }
   }
 `;
@@ -108,4 +125,21 @@ export const HeaderUserName = styled.span`
 export const CaretDownOutlinedIcon = styled(CaretDownOutlined)`
   color: rgba(165, 165, 165, 1);
   margin-left: 0.5rem;
+`;
+
+// submenu icon
+export const SubMenuIconActive = styled.span`
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  border: 1px solid ${primaryColor};
+  min-width: 0.8rem !important;
+  background: ${primaryColor};
+`;
+export const SubMenuIcon = styled.span`
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  border: 1px solid;
+  min-width: 0.8rem !important;
 `;

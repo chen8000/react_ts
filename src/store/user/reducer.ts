@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-04-01 16:13:11
- * @LastEditTime: 2021-04-06 14:05:42
+ * @LastEditTime: 2021-04-06 18:10:18
  * @LastEditors: zhanghui.chen
  */
 
@@ -20,8 +20,7 @@ export const userInfoState = (state = initialState, action: UserAction) => {
       //修改用户登录状态
       return {
         ...state,
-        loginStatus: action.payload.loginStatus,
-        linkList: action.payload.linkList,
+        ...action.payload,
       };
     default:
       return state || null;

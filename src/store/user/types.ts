@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-25 14:47:47
- * @LastEditTime: 2021-04-06 14:26:51
+ * @LastEditTime: 2021-04-07 17:48:34
  * @LastEditors: zhanghui.chen
  */
 
@@ -10,7 +10,8 @@ import { USER_LOGIN_STATUS } from "./actionTypes";
 // user State 类型
 export interface UserInfoStateType {
   loginStatus?: boolean; // 用户是否登录，false未登录
-  linkList?: MenuLinkListType[];
+  linkList?: MenuLinkListType[]; // 当前用户的权限列表
+  name?: string; // 用户名称
 }
 
 // 权限接口类型
@@ -23,7 +24,7 @@ export interface JurisdictionType {
 
 // user menu 接口类型
 export interface MenuLinkListType {
-  children?: boolean;
+  children?: MenuLinkListType[];
   create_time?: string;
   grade_type?: number;
   icon?: string;

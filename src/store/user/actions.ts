@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-04-01 16:13:21
- * @LastEditTime: 2021-04-06 14:06:20
+ * @LastEditTime: 2021-04-09 16:44:25
  * @LastEditors: zhanghui.chen
  */
 
@@ -74,9 +74,9 @@ export const getJurisdiction = async (dispatch: AppDispatch) => {
   const user_id = window.localStorage.getItem("user_id");
 
   if (!token || !user_id) {
-    // dispatch();
     // 退出登录
-    return;
+    logout(dispatch);
+    return false;
   }
 
   const result = await http("/get_jurisdiction", {
@@ -87,15 +87,18 @@ export const getJurisdiction = async (dispatch: AppDispatch) => {
 
   if (result.code !== 200) {
     message.warning("获取权限失败！");
-    return;
+    logout(dispatch);
+    return false;
   }
 
   // 获取权限菜单
   const thisUserLinkList = await getMenus(result);
   if (thisUserLinkList.code !== 200) {
     message.warning("获取权限失败！");
-    return;
+    logout(dispatch);
+    return false;
   }
+
   dispatch(
     setUserInfo({
       ...result,
@@ -103,6 +106,7 @@ export const getJurisdiction = async (dispatch: AppDispatch) => {
       linkList: thisUserLinkList.link_list,
     })
   );
+  return true;
 };
 
 // 获取所有模块列表

@@ -44,6 +44,7 @@ module.exports = {
               "@menu-collapsed-width": "40px",
               "@layout-header-padding": "0 30px",
               "@avatar-bg": "rgba(90, 89, 89, 1)",
+              "@menu-dark-inline-submenu-bg": "rgba(0,0,0,0)",
             },
             javascriptEnabled: true,
           },

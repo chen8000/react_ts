@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-26 15:24:07
- * @LastEditTime: 2021-04-06 14:03:12
+ * @LastEditTime: 2021-04-07 18:54:50
  * @LastEditors: zhanghui.chen
  */
 
@@ -18,6 +18,8 @@ import { AuditStatistics } from "../auditStatistics/index";
 import { ManpowerAudit } from "../manpowerAudit/index";
 import { Organization } from "../organization/index";
 import { WebsiteAudit } from "../websiteAudit/index";
+import { Roles } from "../roles";
+import { Users } from "../users";
 
 export const AuthenticatedApp = () => {
   return (
@@ -32,8 +34,11 @@ export const AuthenticatedApp = () => {
               <Route path={"/maliciousUrl"} element={<MaliciousUrl />} />
               <Route path={"/auditStatistics"} element={<AuditStatistics />} />
               <Route path={"/manpowerAudit"} element={<ManpowerAudit />} />
-              <Route path={"/organization"} element={<Organization />} />
+              <Route path={"/organization"} element={<Organization />}></Route>
               <Route path={"/websiteAudit"} element={<WebsiteAudit />} />
+              <Route path={"/organization/roles"} element={<Roles />} />
+              <Route path={"/organization/users"} element={<Users />} />
+
               <Navigate to={"/maliciousUrl"} />
             </Routes>
           </Layout.Content>
