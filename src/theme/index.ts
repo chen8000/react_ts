@@ -11,5 +11,9 @@ export const primaryColor = "rgba(4, 181, 109, 1)";
 // body 背景色
 export const bodyBackground = "rgba(42, 42, 42, 1)";
 
+// 取消按钮的背景色
+export const cancelButtonBg = "#a5a5a5";
+export const cancelButtonHoverBg = "#b6b6b6";
+
 // dark 字体颜色
 export const textDarkColor = "rgba(255, 255, 255, 0.65)";

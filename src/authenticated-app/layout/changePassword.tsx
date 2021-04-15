@@ -1,14 +1,14 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-04-14 12:25:17
- * @LastEditTime: 2021-04-15 15:10:04
+ * @LastEditTime: 2021-04-15 15:19:48
  * @LastEditors: zhanghui.chen
  */
 
 import { ChangePasswodPropsType } from "./types";
 import { Drawer, Form, Input, Button } from "antd";
 import styled from "@emotion/styled";
-import { primaryColor } from "theme";
+import { primaryColor, cancelButtonBg, cancelButtonHoverBg } from "theme";
 
 export const ChangePasswod = ({
   visible,
@@ -90,19 +90,17 @@ export const CustomInputBordered = styled.div`
 
 // 取消按钮样式
 export const CancelButton = styled(Button)`
-  background: #a5a5a5;
-  border-color: #a5a5a5;
+  background: ${cancelButtonBg};
+  border-color: ${cancelButtonBg};
   &:hover {
-    background: #b6b6b6;
-    border-color: #a5a5a5;
+    background: ${cancelButtonHoverBg};
+    border-color: ${cancelButtonBg};
     color: #fff;
   }
 `;
 
 // item
 export const CustomFormItem = styled(Form.Item)`
-  /* border: 1px solid red; */
-
   button {
     width: 12rem;
   }
