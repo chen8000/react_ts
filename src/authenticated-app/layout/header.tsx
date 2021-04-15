@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-31 19:19:18
- * @LastEditTime: 2021-04-09 16:34:19
+ * @LastEditTime: 2021-04-14 14:14:42
  * @LastEditors: zhanghui.chen
  */
 import { useDispatch, useSelector } from "react-redux";
@@ -11,16 +11,28 @@ import { logout } from "store/user/actions";
 import { useNavigate, useLocation } from "react-router";
 import { US } from "unauthenticated-app/types";
 import { useEffect, useState, useCallback } from "react";
+import { ChangePasswod } from "./changePassword";
 
 export const HeaderContainer = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
   const [headerModuleName, setHeaderModuleName] = useState("");
+  const [passwoldVisible, setPasswoldVisible] = useState(false);
   const pathname = location.pathname.split("/");
   const userInfo = useSelector<US, US["userInfoState"]>(
     (state) => state.userInfoState
   );
+
+  // 打开修改密码弹窗
+  const onOpenChangePassword = () => {
+    setPasswoldVisible(true);
+  };
+
+  // 关闭修改密码弹窗
+  const onCloseChangePassword = () => {
+    setPasswoldVisible(false);
+  };
 
   const returnModuleName = useCallback(() => {
     return String(
@@ -44,31 +56,42 @@ export const HeaderContainer = () => {
   }, [location, userInfo, returnModuleName]);
 
   return (
-    <Layout.Header className={"header"}>
-      <ModuleName>{headerModuleName}</ModuleName>
-      <Dropdown
-        overlay={
-          <Menu>
-            <Menu.Item key="0">修改密码</Menu.Item>
-            <Menu.Item key="1" onClick={handleLogout}>
-              退出登录
-            </Menu.Item>
-          </Menu>
-        }
-        trigger={["click"]}
-      >
-        <p onClick={(e) => e.preventDefault()}>
-          {/* 头像👮 */}
-          <Avatar
-            src={
-              "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-            }
-            style={{ marginRight: ".7rem" }}
-          />
-          <HeaderUserName>{userInfo.name}</HeaderUserName>
-          <CaretDownOutlinedIcon />
-        </p>
-      </Dropdown>
-    </Layout.Header>
+    <>
+      <Layout.Header className={"header"}>
+        <ModuleName>{headerModuleName}</ModuleName>
+        <Dropdown
+          overlay={
+            <Menu>
+              <Menu.Item key="0" onClick={onOpenChangePassword}>
+                修改密码
+              </Menu.Item>
+              <Menu.Item key="1" onClick={handleLogout}>
+                退出登录
+              </Menu.Item>
+            </Menu>
+          }
+          trigger={["click"]}
+        >
+          <p onClick={(e) => e.preventDefault()}>
+            {/* 头像👮 */}
+            <Avatar
+              src={
+                "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+              }
+              style={{ marginRight: ".7rem" }}
+            />
+            <HeaderUserName>{userInfo.name}</HeaderUserName>
+            <CaretDownOutlinedIcon />
+          </p>
+        </Dropdown>
+      </Layout.Header>
+      {/* 修改密码弹窗 */}
+      <ChangePasswod
+        visible={passwoldVisible}
+        onCloseChangePassword={onCloseChangePassword}
+      />
+    </>
   );
 };
+
+// 修改密码 抽屉组件

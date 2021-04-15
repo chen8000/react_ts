@@ -11,3 +11,9 @@ export interface CollapsedType {
   collapsed: boolean;
   setCollapsed: Function;
 }
+
+// 修改密码props
+export interface ChangePasswodPropsType {
+  visible: boolean;
+  onCloseChangePassword: () => void;
+}

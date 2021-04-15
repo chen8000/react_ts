@@ -14,3 +14,26 @@
   display: flex;
   align-items: center;
 }
+
+/* 抽屉 */
+.ant-drawer-title {
+  color: #fff;
+}
+.ant-drawer-close {
+  color: #fff;
+}
+.ant-drawer-close:focus,
+.ant-drawer-close:hover {
+  color: rgb(151, 151, 151);
+}
+.anticon-close {
+  transition: all 0.3s ease;
+}
+
+.ant-drawer-close:hover .anticon-close {
+  display: block;
+  transform: scale(1.1);
+}
+.ant-drawer-header {
+  border-bottom: 1px solid rgb(66, 66, 66);
+}
