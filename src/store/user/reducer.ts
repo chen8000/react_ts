@@ -11,7 +11,7 @@ import { UserAction, UserInfoStateType } from "./types";
 // initial state
 const initialState: UserInfoStateType = {
   loginStatus: false, // 登录状态
-  linkList: [], // 当前用户对应的菜单
+  menus: [], // 当前用户对应的菜单
 };
 
 export const userInfoState = (state = initialState, action: UserAction) => {

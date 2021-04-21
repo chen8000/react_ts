@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-26 15:24:07
- * @LastEditTime: 2021-04-09 17:58:09
+ * @LastEditTime: 2021-04-21 11:45:02
  * @LastEditors: zhanghui.chen
  */
 
@@ -13,13 +13,10 @@ import { LayoutContainer } from "./styled";
 import { SiderContainer } from "./sider";
 import { HeaderContainer } from "./header";
 
-import { MaliciousUrl } from "../maliciousUrl/index";
-import { AuditStatistics } from "../auditStatistics/index";
-import { ManpowerAudit } from "../manpowerAudit/index";
-import { Organization } from "../organization/index";
-import { WebsiteAudit } from "../websiteAudit/index";
-import { Roles } from "../roles";
-import { Users } from "../users";
+import { About } from "../about";
+import { Home } from "../home";
+import { Aboutyou } from "../aboutyou";
+import { Aboutthem } from "../aboutthem";
 
 export const AuthenticatedApp = () => {
   return (
@@ -31,15 +28,11 @@ export const AuthenticatedApp = () => {
           <HeaderContainer></HeaderContainer>
           <Layout.Content>
             <Routes>
-              <Route path={"/maliciousUrl"} element={<MaliciousUrl />} />
-              <Route path={"/auditStatistics"} element={<AuditStatistics />} />
-              <Route path={"/manpowerAudit"} element={<ManpowerAudit />} />
-              <Route path={"/organization"} element={<Organization />}></Route>
-              <Route path={"/websiteAudit"} element={<WebsiteAudit />} />
-              <Route path={"/organization/roles"} element={<Roles />} />
-              <Route path={"/organization/users"} element={<Users />} />
-
-              <Navigate to={"/maliciousUrl"} />
+              <Route path={"/home"} element={<Home />} />
+              <Route path={"/about"} element={<About />} />
+              <Route path={"/aboutyou"} element={<Aboutyou />} />
+              <Route path={"/aboutthem"} element={<Aboutthem />} />
+              <Navigate to={"/home"} />
             </Routes>
           </Layout.Content>
         </Layout>

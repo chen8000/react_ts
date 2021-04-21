@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-31 19:19:18
- * @LastEditTime: 2021-04-14 14:14:42
+ * @LastEditTime: 2021-04-21 11:13:08
  * @LastEditors: zhanghui.chen
  */
 import { useDispatch, useSelector } from "react-redux";
@@ -37,11 +37,11 @@ export const HeaderContainer = () => {
   const returnModuleName = useCallback(() => {
     return String(
       pathname.length > 2
-        ? userInfo.linkList
+        ? userInfo.menus
             ?.filter((res) => res.children?.length)[0]
-            ?.children?.filter((res) => res.link === `/${pathname[2]}`)[0]
+            ?.children?.filter((res) => res.path === `/${pathname[2]}`)[0]
             ?.name || ""
-        : userInfo.linkList?.filter((res) => res.link === `/${pathname[1]}`)[0]
+        : userInfo.menus?.filter((res) => res.path === `/${pathname[1]}`)[0]
             ?.name || ""
     );
   }, [pathname, userInfo]);
@@ -80,7 +80,7 @@ export const HeaderContainer = () => {
               }
               style={{ marginRight: ".7rem" }}
             />
-            <HeaderUserName>{userInfo.name}</HeaderUserName>
+            {/* <HeaderUserName>{userInfo.name}</HeaderUserName> */}
             <CaretDownOutlinedIcon />
           </p>
         </Dropdown>

@@ -1,7 +1,7 @@
 /*
  * @Author: zhanghui.chen
  * @Date: 2021-03-31 19:19:33
- * @LastEditTime: 2021-04-09 15:14:54
+ * @LastEditTime: 2021-04-21 11:50:40
  * @LastEditors: zhanghui.chen
  */
 import { useState } from "react";
@@ -33,15 +33,17 @@ export const SiderContainer = () => {
 
   // 匹配当前路由对应模块的tab选中
   const getMenuKey = () => {
-    return userInfo.linkList?.filter((res) => res.link === `/${pathname[1]}`)[0]
-      ?.menu_id;
+    return userInfo.menus?.filter((res) => res.path === `/${pathname[1]}`)[0]
+      ?.id;
   };
 
   const subSelectKey = () => {
-    return userInfo.linkList
+    return userInfo.menus
       ?.filter((res) => res.children?.length)[0]
-      ?.children?.filter((res) => res.link === `/${pathname[2]}`)[0]?.menu_id;
+      ?.children?.filter((res) => res.path === `/${pathname[2]}`)[0]?.id;
   };
+
+  // console.log(userInfo);
 
   return (
     <Layout.Sider trigger={null} collapsible collapsed={collapsed} width={270}>
@@ -58,41 +60,46 @@ export const SiderContainer = () => {
             String(subSelectKey() ? subSelectKey() : getMenuKey()),
           ]}
         >
-          {userInfo.linkList?.map((item: MenuLinkListType) => {
-            return item.children?.length ? (
-              <Menu.SubMenu
-                key={String(item.menu_id)}
-                title={item.name}
-                icon={
-                  <i className={`iconfont ant-menu-item-icon ${item.icon}`}></i>
-                }
-              >
-                {item.children.map((childrenItem) => (
-                  <Menu.Item
-                    key={String(childrenItem.menu_id)}
-                    icon={
-                      subSelectKey() &&
-                      subSelectKey() === childrenItem.menu_id ? (
-                        <SubMenuIconActive />
-                      ) : (
-                        <SubMenuIcon />
-                      )
-                    }
-                  >
-                    <Link to={`${item.link}${childrenItem.link}`}>
-                      {childrenItem.name}
-                    </Link>
-                  </Menu.Item>
-                ))}
-              </Menu.SubMenu>
-            ) : (
-              <Menu.Item
-                icon={<i className={`iconfont ${item.icon}`}></i>}
-                key={String(item.menu_id)}
-              >
-                <Link to={`${item.link}`}>{item.name}</Link>
+          {userInfo.menus?.map((item: MenuLinkListType) => {
+            // console.log(item);
+            return (
+              <Menu.Item key={String(item.id)}>
+                <Link to={`${item.path}`}>{item.name}</Link>
               </Menu.Item>
             );
+            // return item.children?.length ? (
+            //   <Menu.SubMenu
+            //     key={String(item.id)}
+            //     title={item.name}
+            //     // icon={
+            //     //   <i className={`iconfont ant-menu-item-icon ${item.icon}`}></i>
+            //     // }
+            //   >
+            //     {item.children.map((childrenItem) => (
+            //       <Menu.Item
+            //         key={String(childrenItem.id)}
+            //         icon={
+            //           subSelectKey() && subSelectKey() === childrenItem.id ? (
+            //             <SubMenuIconActive />
+            //           ) : (
+            //             <SubMenuIcon />
+            //           )
+            //         }
+            //       >
+            //         <Link to={`${item.path}${childrenItem.path}`}>
+            //           {childrenItem.name}
+            //         </Link>
+            //       </Menu.Item>
+            //     ))}
+            //   </Menu.SubMenu>
+            // ) : (
+            //   <Menu.Item
+            //     // icon={<i className={`iconfont ${item.icon}`}></i>}
+            //     key={String(item.id)}
+            //   >
+            //     <Link to={`${item.path}`}>{item.name}</Link>
+            //   </Menu.Item>
+            // );
           })}
         </Menu>
       )}

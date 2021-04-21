@@ -23,8 +23,8 @@ export const LoginComponent = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values: UserLogin) => {
-    // dispatch(login(values));
-    dispatch(login({ username: "czh", password: "Czh123!!!" }));
+    dispatch(login(values));
+    // dispatch(login({ username: "czh", password: "Czh123!!!" }));
     // setUserLoginStatus(true);
   };
   return (
