@@ -33,7 +33,7 @@ export const LoginComponent = () => {
         {/* logo */}
         <LogoContainer>
           <img src={Logo} alt="" />
-          <h4>反欺诈人工审核系统</h4>
+          <h4>React ➕ TS</h4>
         </LogoContainer>
         {/* 登录表单 */}
         <LoginCard>

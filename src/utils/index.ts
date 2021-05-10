@@ -35,8 +35,5 @@ export const useGetUserInfo = () => {
 };
 
 export const getUserLoginStatus = () => {
-  return !!(
-    window.localStorage.getItem("token") &&
-    window.localStorage.getItem("user_id")
-  );
+  return !!window.localStorage.getItem("token");
 };
