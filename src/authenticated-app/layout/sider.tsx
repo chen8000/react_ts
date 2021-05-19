@@ -119,7 +119,7 @@ const LogoGroup = ({ collapsed }: Omit<CollapsedType, "setCollapsed">) => {
           classNames={"fade"}
           unmountOnExit
         >
-          <span>反欺诈人工审核系统</span>
+          <span>React+TS</span>
         </CSSTransition>
       </p>
     </LogoContainer>
